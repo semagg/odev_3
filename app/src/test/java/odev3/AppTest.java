@@ -7,7 +7,6 @@ package odev3;
 import org.junit.jupiter.api.Test;
 
 import static java.util.Arrays.asList;
-import static odev3.App.search;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -20,16 +19,27 @@ class AppTest {
         assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
     }
     @Test
-    public void testFound(){
-        ArrayList<Integer>array=new ArrayList<>(asList(1,2,3,4,5));
-        assertTrue(search(array, 4));
-
-    }
+   public void testFound(){
+       int array[]={1,2,3,4,5,6,7};
+       assertTrue(App.ciftSayibulma(array, 3));
+   }
+    
 
     @Test
+    public void testNotFound(){
+        int array [] = {1,2,3,4,5,6,7};
+        assertFalse(App.ciftSayibulma(array,1));
+    }
+
+   /*  @Test
     public void testNull(){
+        assertFalse(App.ciftSayibulma(null,0));
 
-        assertFalse(search(null,1));
-
+    }*/
+    @Test 
+    public void testEmptyArray()
+    {
+        int array [] = {};
+        assertFalse(App.ciftSayibulma(array, 1));
     }
 }
